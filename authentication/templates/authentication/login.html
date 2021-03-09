@@ -1,0 +1,41 @@
+{% extends 'authentication/main.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+	<div class="row col-6">
+		<div class="card card-body">
+			<form action="" method="POST">
+				{% csrf_token %}
+			  <div>
+			    <label>Username </label>
+			    <input type="text" name="username" id="username" required>
+			  </div>
+			  <div>
+			    <label>Password </label>
+			    <input type="password" name="password" id="password" required>
+			  </div>
+			  <div>
+			    <input type="submit" value="Log In">
+			  </div>
+			  <div>
+			  	Don't have account?
+			  	<a href="{% url 'register' %}">Register</a>
+			  </div>
+			  <div>
+			  	{% for message in messages %}
+			  		{{message}}
+			  	{% endfor %}
+			  </div>
+			</form>	
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	$("#password").password('toggle');
+
+</script>
+{% endblock %}

@@ -1,0 +1,13 @@
+
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="" width="30" height="30" class="d-inline-block align-top">
+      Bookstore
+    </a>
+    {% if logined %}
+    <span><a href="{% url 'logout' %}" class="btn btn-primary" style="right: 10%;">Logout</a></span>
+    {% endif %}
+  </div>
+</nav>
