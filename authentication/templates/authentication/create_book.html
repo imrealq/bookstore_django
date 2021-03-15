@@ -8,8 +8,27 @@
 			<form action="" method="POST">
 				{% csrf_token %}
 
-				{{form.as_p}}
-				<input type="submit" name="create", value="Create">
+				<div>
+					{{ form.name.label }}
+					{{ form.name }}	
+				</div>
+				<div>
+					{{ form.release_date.label }}
+					{{ form.release_date }}	
+				</div>
+				<div>
+					{{ form.author.label }}
+					{{ form.author }}	
+				</div>
+				<div>
+					{{ form.short_description.label }}
+					{{ form.short_description }}	
+				</div>
+				<div>
+					{{ form.price.label }}
+					{{ form.price }}	
+				</div>
+				<input type="submit" name="create" value="Create">
 			</form>
 		</div>
 	</div>

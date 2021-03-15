@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = '!2k2+k9tb8qj1pd)6&@2)5!04bitv#7)w_bqn1o-mwmx(8a(i8 '
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,16 +81,20 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bookstore',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': f"{os.environ['BOOKSTORE_USER_DB']}",
-        'PASSWORD': f"{os.environ['BOOKSTORE_PASSWORD_DB']}",
-    }
-}
+
+# mysql
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'bookstore',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'USER': f"{os.environ['BOOKSTORE_USER_DB']}",
+#         'PASSWORD': f"{os.environ['BOOKSTORE_PASSWORD_DB']}",
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
