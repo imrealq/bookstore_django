@@ -2,35 +2,19 @@
 
 {% block content %}
 <br>
-<div class="container">
-	<div class="row col-6">
-		<div class="card card-body">
-			<form action="" method="POST">
-				{% csrf_token %}
+<div class="rows" style="margin-left: 5rem">
+	<form action="" method="POST">
+		{% csrf_token %}
 
-				<div>
-					{{ form.name.label }}
-					{{ form.name }}	
-				</div>
-				<div>
-					{{ form.release_date.label }}
-					{{ form.release_date }}	
-				</div>
-				<div>
-					{{ form.author.label }}
-					{{ form.author }}	
-				</div>
-				<div>
-					{{ form.short_description.label }}
-					{{ form.short_description }}	
-				</div>
-				<div>
-					{{ form.price.label }}
-					{{ form.price }}	
-				</div>
-				<input type="submit" name="create" value="Create">
-			</form>
+		{% for field in form %}
+		<div class="form-group">
+			<label for="id_{{ field.label }}">{{field.label}}</label>
+			<div>{{field}}</div>				    
 		</div>
-	</div>
+		{% endfor %}
+		
+		<br>
+		<input type="submit" name="create" value="Create book">
+	</form>
 </div>
 {% endblock %}

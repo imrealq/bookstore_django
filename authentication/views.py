@@ -26,7 +26,9 @@ def registerPage(request):
 			messages.success(request, f'Account {user} was created')
 
 			return redirect('login')
-
+		else:
+			print("***log***", form)
+			messages.error(request, "Please re-fill")	
 	context = {'form': form}
 
 	return render(request,'authentication/register.html', context)
@@ -62,7 +64,6 @@ def home(request):
 @login_required(login_url='login')
 def createBook(request):
 	form = CreateBook()
-
 	if request.method == "POST":
 		form = CreateBook(request.POST)
 		if form.is_valid():

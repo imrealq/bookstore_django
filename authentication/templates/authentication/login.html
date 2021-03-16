@@ -1,41 +1,39 @@
 {% extends 'authentication/main.html' %}
 
 {% block content %}
-<br>
+
 <div class="container">
-	<div class="row col-6">
-		<div class="card card-body">
-			<form action="" method="POST">
-				{% csrf_token %}
-			  <div>
-			    <label>Username </label>
-			    <input type="text" name="username" id="username" required>
-			  </div>
-			  <div>
-			    <label>Password </label>
-			    <input type="password" name="password" id="password" required>
-			  </div>
-			  <div>
-			    <input type="submit" value="Log In">
-			  </div>
-			  <div>
-			  	Don't have account?
-			  	<a href="{% url 'register' %}">Register</a>
-			  </div>
-			  <div>
-			  	{% for message in messages %}
-			  		{{message}}
-			  	{% endfor %}
-			  </div>
-			</form>	
-		</div>
+	<div class="row" style="position: absolute; top: 35%; left: 40%">
+		<div class="card" style="width: 25rem;">
+			<div class="card-body">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-12">
+						  <label for="username" class="form-label">Username</label>
+						  <input type="text" class="form-control" id="username" placeholder="Username">
+						</div>							
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						  <label for="password" class="form-label">Password</label>
+						  <input type="password" class="form-control" id="password" placeholder="Password">
+						</div>
+					</div>
+					<br>
+					<div class="d-flex d-flex justify-content-end">
+						<input class="btn btn-outline-primary" type="submit" value="Log In">	
+					</div>
+				</form>
+				<br>
+				<div class="row">
+		  			<div>Don't have account? <a href="{% url 'register' %}">Register</a></div>
+			  		{% for message in messages %}
+					<div class="alert alert-danger" role="alert">{{message}}</div>
+					{% endfor %}
+		  		</div>			
+			</div>
+		</div>	
 	</div>
 </div>
-
-
-<script type="text/javascript">
-
-	$("#password").password('toggle');
-
-</script>
 {% endblock %}
