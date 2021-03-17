@@ -2,19 +2,25 @@
 
 {% block content %}
 <br>
-<div class="rows" style="margin-left: 5rem">
-	<form action="" method="POST">
-		{% csrf_token %}
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<form action="" method="POST">
+						{% csrf_token %}
 
-		{% for field in form %}
-		<div class="form-group">
-			<label for="id_{{ field.label }}">{{field.label}}</label>
-			<div>{{field}}</div>				    
+						{{form}}
+						<br>
+						<input class="btn btn-outline-primary" type="submit" name="create" value="Create book">
+					</form>
+				</div>
+			</div>
 		</div>
-		{% endfor %}
-		
-		<br>
-		<input type="submit" name="create" value="Create book">
-	</form>
+	</div>
 </div>
+<div class="rows" style="margin-left: 5rem">
+
+</div>
+
 {% endblock %}

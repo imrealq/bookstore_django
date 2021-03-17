@@ -4,13 +4,15 @@
 <br>
 <div class="container">
 	<div class="row col-6">
-		<div class="card card-body">
-			<form action="" method="POST">
-				{% csrf_token %}
+		<div class="card">
+			<div class="card-body">
+				<form action="" method="POST">
+					{% csrf_token %}
 
-				{{form.as_p}}
-				<input type="submit" name="update", value="Update">
-			</form>
+					{{form}}
+					<input class="btn btn-outline-primary" type="submit" name="update", value="Update">
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

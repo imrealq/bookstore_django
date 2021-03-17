@@ -3,15 +3,19 @@
 {% block content %}
 <br>
 <div class="container">
-	<div class="row col-6">
-		<div class="card card-body">
-			<p>Are you sure want to delete "{{book}}"?</p>
+	<div class="row">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<p>Are you sure want to delete "{{book.book_title}}"?</p>
 
-			<form action="{% url 'delete book' book.id %}" method="POST">
-				{% csrf_token %}
-				<a href="{% url 'home' %}" class="btn btn-outline-primary">No</a>
-				<input type="submit" name="delete" class="btn btn-outline-danger" value="Yes">
-			</form>	
+					<form action="{% url 'delete book' book.id %}" method="POST">
+						{% csrf_token %}
+						<a href="{% url 'home' %}" class="btn btn-outline-primary">No</a>
+						<input type="submit" name="delete" class="btn btn-outline-danger" value="Yes">
+					</form>	
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

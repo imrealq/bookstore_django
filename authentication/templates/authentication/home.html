@@ -9,7 +9,7 @@
   				<h2>Books List</h2>
 				<div>
 					{% for message in messages %}
-					{{message}}
+					<div class="alert alert-danger" role="alert">{{message}}</div>
 					{% endfor %}
 				</div>
   				<div class="d-md-flex justify-content-md-end">
@@ -33,7 +33,7 @@
 				  	{% for book in books %}
 				  	<tr>
 				  		<th>{{ loop.index }}</th>
-				  		<td>{{book.name}}</td>
+				  		<td>{{book.book_title}}</td>
 				  		<td>{{book.release_date}}</td>
 				  		<td>{{book.author}}</td>
 				  		<td>{{book.short_description}}</td>

@@ -16,7 +16,6 @@ from .models import BooksInfo
 @unauthenticated_user
 def registerPage(request):
 	form = CreateUserForm()
-
 	if request.method == "POST":
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
@@ -27,7 +26,6 @@ def registerPage(request):
 
 			return redirect('login')
 		else:
-			print("***log***", form)
 			messages.error(request, "Please re-fill")	
 	context = {'form': form}
 
@@ -40,7 +38,7 @@ def loginPage(request):
 		password = request.POST.get('password')
 
 		user = authenticate(request, username=username, password=password)
-		
+
 		if user is not None:
 			login(request, user)
 			return redirect('home')
@@ -63,12 +61,12 @@ def home(request):
 
 @login_required(login_url='login')
 def createBook(request):
-	form = CreateBook()
+	form = CreateBook(auto_id="id_%s")
 	if request.method == "POST":
 		form = CreateBook(request.POST)
 		if form.is_valid():
 			form.save()
-			book = form.cleaned_data['name']
+			book = form.cleaned_data['book_title']
 			messages.success(request, f'Book "{book}" was added')
 			return redirect('home')
 
@@ -84,7 +82,7 @@ def updateBook(request, pk):
 		form = CreateBook(request.POST, instance=book)
 		if form.is_valid():
 			form.save()
-			book = form.cleaned_data['name']
+			book = form.cleaned_data['book_title']
 			messages.success(request, f'Book "{book}" was updated')
 			return redirect('home')
 
@@ -98,7 +96,7 @@ def deleteBook(request, pk):
 	
 	if request.method == "POST":
 		book.delete()
-		messages.success(request, f'Book "{book}" was deleted')
+		messages.success(request, f'Book "{book.book_title}" was deleted')
 		return redirect('home')
 
 	context = {'book': book}
