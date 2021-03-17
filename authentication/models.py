@@ -5,8 +5,8 @@ from django.db import models
 from datetime import date
 
 class Author(models.Model):
-	name = models.CharField(max_length=100, default="Unknown")
-	date_of_birth = models.DateField(default=date(1900,1,1))
+	name = models.CharField(max_length=100)
+	date_of_birth = models.DateField()
 
 	def __str__(self):
 		return self.name
