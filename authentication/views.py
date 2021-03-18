@@ -25,8 +25,7 @@ def registerPage(request):
 			messages.success(request, f'Account {user} was created')
 
 			return redirect('login')
-		else:
-			messages.error(request, "Please re-fill")	
+
 	context = {'form': form}
 
 	return render(request,'authentication/register.html', context)
