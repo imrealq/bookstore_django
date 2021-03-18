@@ -24,9 +24,7 @@ def registerPage(request):
 			user = form.cleaned_data['username']
 			messages.success(request, f'Account {user} was created')
 
-			return redirect('login')
-		else:
-			messages.error(request, "Please re-fill")	
+			return redirect('login')	
 	context = {'form': form}
 
 	return render(request,'authentication/register.html', context)
